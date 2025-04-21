@@ -6,7 +6,7 @@ author: Matt Cohen
 ```{r}
 library(DatawRappr)
 library(tidyverse)
-datawrapper_auth(api_key =  "YDefGtmJ90tDbh1TQXGUAtuATxk1nCAt5dy3AW2dRnx4orG9NxUV6IDjrlJv3nLD", overwrite=TRUE)
+datawrapper_auth(api_key =  "fill in datawrapper api key", overwrite=TRUE)
 library(janitor)
 library(lubridate)
 library(htmltools)
