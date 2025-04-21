@@ -1,0 +1,77 @@
+---
+title: "Lax Demographics"
+author: Matt Cohen
+---
+
+```{r}
+library(DatawRappr)
+library(tidyverse)
+datawrapper_auth(api_key =  "YDefGtmJ90tDbh1TQXGUAtuATxk1nCAt5dy3AW2dRnx4orG9NxUV6IDjrlJv3nLD", overwrite=TRUE)
+library(janitor)
+library(lubridate)
+library(htmltools)
+```
+
+```{r}
+lax_demo <- read_csv("student_athletes_by_race.csv") |> clean_names()
+
+lax_pct <- read_csv("lax_pct_change.csv") |> clean_names()
+```
+
+```{r}
+lax_pct <- lax_pct |>
+  rename("white athlete yearly pct change" = pct_change_male_white) |>
+  rename("Black athlete yearly pct change" = pct_change_male_black)
+```
+
+```{r}
+lax_demo$x2024 <- as.numeric(lax_demo$x2024)
+lax_demo$x2023 <- as.numeric(lax_demo$x2023)
+lax_demo$x2022 <- as.numeric(lax_demo$x2022)
+lax_demo$x2021 <- as.numeric(lax_demo$x2021)
+lax_demo$x2020 <- as.numeric(lax_demo$x2020)
+lax_demo$x2019 <- as.numeric(lax_demo$x2019)
+lax_demo$x2018 <- as.numeric(lax_demo$x2018)
+lax_demo$x2017 <- as.numeric(lax_demo$x2017)
+lax_demo$x2016 <- as.numeric(lax_demo$x2016)
+lax_demo$x2015 <- as.numeric(lax_demo$x2015)
+lax_demo$x2014 <- as.numeric(lax_demo$x2014)
+lax_demo$x2013 <- as.numeric(lax_demo$x2013)
+lax_demo$x2012 <- as.numeric(lax_demo$x2012)
+```
+//BAR CHART FOR DEMOGRAPHICS COMPARISON//
+
+```{r}
+my_chart <- dw_create_chart()
+```
+
+```{r}
+dw_data_to_chart(lax_demo, my_chart)
+```
+
+```{r}
+dw_edit_chart(my_chart, type="grouped-column-chart", title = "In 2024, white NCAA lacrosse athletes outnumbered Black athletes by more than 13,000", 
+intro = "Yet Black athlete participation in college lacrosse has still increased 120% since 2012.", source_name = "NCAA", byline="Matt Cohen/The Washington Post")
+```
+
+```{r}
+dw_publish_chart(my_chart)
+```
+//LINE CHART FOR PCT CHANGE//
+```{r}
+my_chart_two <- dw_create_chart()
+```
+
+```{r}
+dw_data_to_chart(lax_pct, my_chart_two)
+```
+
+```{r}
+dw_edit_chart(my_chart_two, title = "Black athlete participation in NCAA lacrosse hasn't been consistent", 
+intro = "While overall Black athlete participation is increasing — rebounding after the Covid-19 pandemic — the yearly increase of Black athletes in lacrosse has greatly fluctuated", source_name = "NCAA", byline="Matt Cohen/The Washington Post")
+```
+
+```{r}
+dw_publish_chart(my_chart_two)
+```
+
