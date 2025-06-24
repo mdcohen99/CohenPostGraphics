@@ -16,4 +16,10 @@ library(htmltools)
 ams_md_table <- read_csv("md_publics.csv") |> clean_names()
 ```
 
+```{r}
+md_chart <- dw_create_chart(
+  title = "Maryland Public High Schools",
+  type = "table"
+)
+```
 
