@@ -4,7 +4,16 @@ author: Matt Cohen
 ---
 
 ```{r}
-ams_md_table <- read_csv()
+library(DatawRappr)
+library(tidyverse)
+datawrapper_auth(api_key =  "add API key here", overwrite=TRUE)
+library(janitor)
+library(lubridate)
+library(htmltools)
+```
+
+```{r}
+ams_md_table <- read_csv("md_publics.csv") |> clean_names()
 ```
 
 
