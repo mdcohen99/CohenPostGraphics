@@ -20,3 +20,14 @@
     width: 75%;
     margin: 30px auto;
 }
+
+footer {
+    font-family: "Montserrat";
+    text-align: center;
+    font-weight: 100;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+}
