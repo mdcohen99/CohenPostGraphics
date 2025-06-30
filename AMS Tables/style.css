@@ -31,3 +31,10 @@ footer {
     background-color: black;
     color: white;
 }
+
+.chapter {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+    text-align: left;
+}
